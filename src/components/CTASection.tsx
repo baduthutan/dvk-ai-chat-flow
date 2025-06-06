@@ -1,20 +1,17 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const CTASection = () => {
-  const { ref: ctaRef, isInView: ctaInView } = useScrollAnimation({ threshold: 0.3 });
-
   return (
     <section className="py-24 px-6 bg-darker-charcoal relative overflow-hidden">
-      {/* Background decorative elements with gentle motion */}
+      {/* Background decorative elements - dimmed */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/3 rounded-full blur-3xl animate-gentle-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/3 rounded-full blur-3xl animate-drift"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/5 rounded-full blur-3xl"></div>
         
-        {/* Abstract swirl with gentle rotation */}
-        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5" viewBox="0 0 400 400">
+        {/* Abstract swirl - dimmed */}
+        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-3" viewBox="0 0 400 400">
           <path d="M50,200 Q200,50 350,200 Q200,350 50,200" stroke="#00E5C0" strokeWidth="2" fill="none" strokeDasharray="5,5">
             <animateTransform
               attributeName="transform"
@@ -22,7 +19,7 @@ const CTASection = () => {
               type="rotate"
               from="0 200 200"
               to="360 200 200"
-              dur="60s"
+              dur="30s"
               repeatCount="indefinite"
             />
           </path>
@@ -30,10 +27,13 @@ const CTASection = () => {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        {/* Floating Chat Bubble Testimonials with enhanced animations */}
+        {/* Floating Chat Bubble Testimonials - better positioned */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Testimonial Bubble 1 */}
-          <div className="absolute -top-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block animate-float">
+          {/* Testimonial Bubble 1 - Top Left, further out */}
+          <div 
+            className="absolute -top-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block"
+            style={{transform: "translateY(calc(-20% + (var(--scroll) * 0.05))) rotate(-2deg)"}}
+          >
             <p className="text-gray-200 text-sm">
               "DVK AI helped us increase our conversion rate by 40% in just two months!"
             </p>
@@ -43,8 +43,11 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 2 */}
-          <div className="absolute -top-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1 hidden xl:block animate-drift">
+          {/* Testimonial Bubble 2 - Top Right, further out */}
+          <div 
+            className="absolute -top-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1 hidden xl:block"
+            style={{transform: "translateY(calc(-10% + (var(--scroll) * -0.03))) rotate(1deg)"}}
+          >
             <p className="text-gray-200 text-sm">
               "Our average order value increased by 25% after implementing DVK AI's smart upsells."
             </p>
@@ -54,8 +57,11 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 3 */}
-          <div className="absolute -bottom-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3 hidden xl:block animate-gentle-pulse">
+          {/* Testimonial Bubble 3 - Bottom Left, further out */}
+          <div 
+            className="absolute -bottom-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3 hidden xl:block"
+            style={{transform: "translateY(calc(10% + (var(--scroll) * 0.02))) rotate(3deg)"}}
+          >
             <p className="text-gray-200 text-sm">
               "Our team can now focus on high-value tasks while DVK AI handles routine customer inquiries."
             </p>
@@ -65,8 +71,11 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 4 */}
-          <div className="absolute -bottom-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block animate-bounce-slow">
+          {/* Testimonial Bubble 4 - Bottom Right, further out */}
+          <div 
+            className="absolute -bottom-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block"
+            style={{transform: "translateY(calc(20% + (var(--scroll) * -0.04))) rotate(-2deg)"}}
+          >
             <p className="text-gray-200 text-sm">
               "DVK AI integrated seamlessly with our existing systems. Implementation was a breeze."
             </p>
@@ -78,27 +87,39 @@ const CTASection = () => {
         </div>
 
         {/* Main CTA Content */}
-        <div ref={ctaRef} className="text-center py-20 px-8">
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight scroll-fade-in ${ctaInView ? 'animate' : ''}`}>
+        <div className="text-center py-20 px-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Convert More Customers with{' '}
             <span className="text-neon-teal text-glow">AI Agents</span>?
           </h2>
           
-          <p className={`text-xl text-gray-300 mb-8 max-w-2xl mx-auto scroll-fade-in ${ctaInView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             See DVK AI in action, live—no credit card required.
           </p>
 
-          <div className={`mb-6 scroll-scale-in ${ctaInView ? 'animate' : ''}`} style={{ transitionDelay: '0.4s' }}>
+          <div className="mb-6">
             <Button className="bg-neon-teal text-white text-lg px-8 py-7 rounded-lg hover:bg-neon-teal/90 hover:shadow-[0_0_15px_rgba(0,229,192,0.5)] transition-all">
               Book a Demo
             </Button>
           </div>
 
-          <p className={`text-gray-500 text-sm scroll-fade-in ${ctaInView ? 'animate' : ''}`} style={{ transitionDelay: '0.6s' }}>
+          <p className="text-gray-500 text-sm">
             Schedule at your convenience—slots fill up fast.
           </p>
         </div>
       </div>
+
+      {/* Add scroll event listener for parallax effect */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+              const scrollPosition = window.scrollY;
+              document.documentElement.style.setProperty('--scroll', scrollPosition);
+            });
+          });
+        `
+      }} />
     </section>
   );
 };

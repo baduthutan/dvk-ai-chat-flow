@@ -1,29 +1,26 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const HeroSection = () => {
-  const { ref: heroRef, isInView: heroInView } = useScrollAnimation({ threshold: 0.3 });
-  const { ref: illustrationRef, isInView: illustrationInView } = useScrollAnimation({ threshold: 0.2 });
-
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 px-6">
-      {/* Background decorative elements with gentle motion */}
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/5 rounded-full blur-3xl animate-gentle-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/5 rounded-full blur-3xl animate-drift"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Announcement Badge */}
-        <div ref={heroRef} className={`text-center mb-8 scroll-fade-in ${heroInView ? 'animate' : ''}`}>
+        <div className="text-center mb-8">
           <span className="inline-block bg-bright-violet/20 text-bright-violet px-4 py-2 rounded-full text-sm font-medium border border-bright-violet/30">
             Announcing Our $50M Series A
           </span>
         </div>
 
         {/* Main Headline */}
-        <div className={`text-center mb-8 scroll-fade-in ${heroInView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
+        <div className="text-center mb-8">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
             Deliver Futuristic{' '}
             <span className="text-neon-teal text-glow">AI-Driven</span>{' '}
@@ -35,7 +32,7 @@ const HeroSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className={`max-w-md mx-auto mb-8 text-center scroll-scale-in ${heroInView ? 'animate' : ''}`} style={{ transitionDelay: '0.4s' }}>
+        <div className="max-w-md mx-auto mb-8 text-center">
           <Button className="btn-primary text-lg px-8 py-4 mb-4">
             Book a Demo
           </Button>
@@ -43,7 +40,7 @@ const HeroSection = () => {
         </div>
 
         {/* Platform Logos */}
-        <div className={`flex items-center justify-center gap-8 mb-12 text-gray-400 text-sm scroll-fade-in ${heroInView ? 'animate' : ''}`} style={{ transitionDelay: '0.6s' }}>
+        <div className="flex items-center justify-center gap-8 mb-12 text-gray-400 text-sm">
           <span>Works with</span>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2">
@@ -60,7 +57,7 @@ const HeroSection = () => {
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.78 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
               Instagram
             </span>
@@ -74,9 +71,9 @@ const HeroSection = () => {
         </div>
 
         {/* Hero Illustration */}
-        <div ref={illustrationRef} className={`relative max-w-4xl mx-auto scroll-scale-in ${illustrationInView ? 'animate' : ''}`}>
-          {/* Floating chat bubbles with enhanced animations */}
-          <div className="absolute -left-20 top-10 animate-float">
+        <div className="relative max-w-4xl mx-auto">
+          {/* Floating chat bubbles */}
+          <div className="absolute -left-20 top-10 animate-bounce-slow">
             <div className="bg-neon-teal/20 border border-neon-teal rounded-2xl p-4 chat-bubble text-neon-teal">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-6 h-6 bg-neon-teal rounded-full flex items-center justify-center text-xs text-deep-charcoal font-bold">M</div>
@@ -86,7 +83,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="absolute -right-20 top-20 animate-drift">
+          <div className="absolute -right-20 top-20 animate-float">
             <div className="bg-electric-lime/20 border border-electric-lime rounded-2xl p-4 chat-bubble text-electric-lime">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-6 h-6 bg-electric-lime rounded-full flex items-center justify-center text-xs text-deep-charcoal font-bold">L</div>
@@ -94,13 +91,13 @@ const HeroSection = () => {
               </div>
               <p className="text-sm">Perfect! Here's what I found...</p>
             </div>
-            {/* Lightning bolt with enhanced animation */}
+            {/* Lightning bolt - consistent style */}
             <svg className="absolute -top-8 -right-8 w-12 h-12 text-electric-lime animate-glow-pulse" viewBox="0 0 24 24" fill="currentColor">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
 
-          {/* Main illustration */}
+          {/* Main illustration - stacked chat interfaces without Slack */}
           <div className="relative bg-gradient-to-br from-deep-charcoal to-darker-charcoal neon-border rounded-3xl p-8 transform rotate-1">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* WhatsApp style */}
@@ -143,7 +140,7 @@ const HeroSection = () => {
               <div className="bg-gray-900 rounded-2xl p-4 border border-gray-700 transform rotate-2">
                 <div className="flex items-center gap-2 mb-4 text-pink-400">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.78 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                   <span className="text-sm font-semibold">Instagram</span>
                 </div>
@@ -158,11 +155,11 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Background lightning bolts with gentle motion */}
-            <svg className="absolute -top-6 -left-6 w-24 h-24 text-electric-lime/20 -z-10 animate-gentle-pulse" viewBox="0 0 24 24" fill="currentColor">
+            {/* Background lightning bolts - consistent style */}
+            <svg className="absolute -top-6 -left-6 w-24 h-24 text-electric-lime/20 -z-10" viewBox="0 0 24 24" fill="currentColor">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
-            <svg className="absolute -bottom-6 -right-6 w-32 h-32 text-neon-teal/20 -z-10 animate-drift" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="absolute -bottom-6 -right-6 w-32 h-32 text-neon-teal/20 -z-10" viewBox="0 0 24 24" fill="currentColor">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
