@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 const CTASection = () => {
   return (
     <section className="py-24 px-6 bg-darker-charcoal relative overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Background decorative elements - dimmed */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-lime/5 rounded-full blur-3xl"></div>
         
-        {/* Abstract swirl */}
-        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5" viewBox="0 0 400 400">
+        {/* Abstract swirl - dimmed */}
+        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-3" viewBox="0 0 400 400">
           <path d="M50,200 Q200,50 350,200 Q200,350 50,200" stroke="#00E5C0" strokeWidth="2" fill="none" strokeDasharray="5,5">
             <animateTransform
               attributeName="transform"
@@ -27,11 +27,11 @@ const CTASection = () => {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        {/* Floating Chat Bubble Testimonials - positioned to not overlap main content */}
+        {/* Floating Chat Bubble Testimonials - better positioned */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Testimonial Bubble 1 - Top Left */}
+          {/* Testimonial Bubble 1 - Top Left, further out */}
           <div 
-            className="absolute top-0 left-0 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden lg:block"
+            className="absolute -top-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block"
             style={{transform: "translateY(calc(-20% + (var(--scroll) * 0.05))) rotate(-2deg)"}}
           >
             <p className="text-gray-200 text-sm">
@@ -43,9 +43,9 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 2 - Top Right */}
+          {/* Testimonial Bubble 2 - Top Right, further out */}
           <div 
-            className="absolute top-0 right-0 max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1 hidden lg:block"
+            className="absolute -top-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1 hidden xl:block"
             style={{transform: "translateY(calc(-10% + (var(--scroll) * -0.03))) rotate(1deg)"}}
           >
             <p className="text-gray-200 text-sm">
@@ -57,9 +57,9 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 3 - Bottom Left */}
+          {/* Testimonial Bubble 3 - Bottom Left, further out */}
           <div 
-            className="absolute bottom-0 left-0 max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3 hidden lg:block"
+            className="absolute -bottom-16 -left-80 max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3 hidden xl:block"
             style={{transform: "translateY(calc(10% + (var(--scroll) * 0.02))) rotate(3deg)"}}
           >
             <p className="text-gray-200 text-sm">
@@ -71,9 +71,9 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 4 - Bottom Right */}
+          {/* Testimonial Bubble 4 - Bottom Right, further out */}
           <div 
-            className="absolute bottom-0 right-0 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden lg:block"
+            className="absolute -bottom-8 -right-80 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden xl:block"
             style={{transform: "translateY(calc(20% + (var(--scroll) * -0.04))) rotate(-2deg)"}}
           >
             <p className="text-gray-200 text-sm">
@@ -86,7 +86,7 @@ const CTASection = () => {
           </div>
         </div>
 
-        {/* Main CTA Content - with proper spacing from bubbles */}
+        {/* Main CTA Content */}
         <div className="text-center py-20 px-8">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Convert More Customers with{' '}

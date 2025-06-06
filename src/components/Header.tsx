@@ -30,13 +30,10 @@ const Header = () => {
             <a href="#careers" className="text-gray-300 hover:text-neon-teal transition-colors duration-300">Careers</a>
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="btn-secondary">
-              Login
-            </Button>
+          {/* CTA Button */}
+          <div className="hidden md:flex">
             <Button className="btn-primary">
-              Sign Up
+              Book a Demo
             </Button>
           </div>
 
@@ -60,12 +57,9 @@ const Header = () => {
               <a href="#integrations" className="text-gray-300 hover:text-neon-teal transition-colors duration-300">Integrations</a>
               <a href="#pricing" className="text-gray-300 hover:text-neon-teal transition-colors duration-300">Pricing</a>
               <a href="#careers" className="text-gray-300 hover:text-neon-teal transition-colors duration-300">Careers</a>
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="btn-secondary w-full">
-                  Login
-                </Button>
+              <div className="pt-4">
                 <Button className="btn-primary w-full">
-                  Sign Up
+                  Book a Demo
                 </Button>
               </div>
             </nav>

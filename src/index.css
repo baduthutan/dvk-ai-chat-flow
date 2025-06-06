@@ -94,6 +94,14 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
   
   @keyframes float {
     0%, 100% {
@@ -101,6 +109,24 @@
     }
     50% {
       transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+    50% {
+      filter: drop-shadow(0 0 15px currentColor);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
     }
   }
 }
