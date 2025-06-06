@@ -1,12 +1,17 @@
-
 import React from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const StatsSection = () => {
+  const { ref: headerRef, isInView: headerInView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: chartRef, isInView: chartInView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: statRef, isInView: statInView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: additionalStatsRef, isInView: additionalStatsInView } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section className="py-24 px-6 bg-darker-charcoal">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 scroll-fade-in ${headerInView ? 'animate' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Turn Prospects Into Customers More Effectively Than Humans
           </h2>
@@ -15,13 +20,14 @@ const StatsSection = () => {
         {/* Stats Grid */}
         <div className="grid md:grid-cols-2 gap-12">
           {/* Chart Card */}
-          <div className="bg-deep-charcoal rounded-3xl p-8 border border-gray-700">
+          <div ref={chartRef} className={`bg-deep-charcoal rounded-3xl p-8 border border-gray-700 scroll-slide-left ${chartInView ? 'animate' : ''}`}>
             <h3 className="text-2xl font-semibold text-electric-lime mb-6 text-center">
               Performance Comparison
             </h3>
             
             {/* Chart Area */}
             <div className="relative h-64 bg-gray-900 rounded-xl p-4 mb-4">
+              {/* ... keep existing code (chart implementation) */}
               <div className="absolute inset-4">
                 {/* Y-axis labels */}
                 <div className="absolute left-0 top-0 text-xs text-gray-400">$50k</div>
@@ -88,7 +94,7 @@ const StatsSection = () => {
           </div>
 
           {/* Stat Card */}
-          <div className="bg-deep-charcoal rounded-3xl p-8 border border-gray-700 flex flex-col justify-center items-center text-center">
+          <div ref={statRef} className={`bg-deep-charcoal rounded-3xl p-8 border border-gray-700 flex flex-col justify-center items-center text-center relative scroll-slide-right ${statInView ? 'animate' : ''}`}>
             <div className="relative mb-6">
               {/* 3D effect for the number */}
               <div className="text-8xl font-bold text-neon-teal relative">
@@ -107,27 +113,27 @@ const StatsSection = () => {
               DVK AI can handle 10× more chats than a human rep, 24/7, with near-zero latency.
             </p>
 
-            {/* Decorative elements */}
-            <div className="absolute top-8 right-8 w-16 h-16 border-2 border-neon-teal/20 rounded-full"></div>
-            <div className="absolute bottom-8 left-8 w-12 h-12 border-2 border-electric-lime/20 rounded-full"></div>
+            {/* Decorative elements with gentle animation */}
+            <div className="absolute top-8 right-8 w-16 h-16 border-2 border-neon-teal/20 rounded-full animate-gentle-pulse"></div>
+            <div className="absolute bottom-8 left-8 w-12 h-12 border-2 border-electric-lime/20 rounded-full animate-drift"></div>
           </div>
         </div>
 
         {/* Additional Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div className="text-center">
+        <div ref={additionalStatsRef} className={`grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 scroll-fade-in ${additionalStatsInView ? 'animate' : ''}`}>
+          <div className={`text-center scroll-scale-in ${additionalStatsInView ? 'animate' : ''}`} style={{ transitionDelay: '0.1s' }}>
             <div className="text-4xl font-bold text-neon-teal mb-2">99.9%</div>
             <div className="text-white font-semibold mb-1">Uptime</div>
             <div className="text-gray-400 text-sm">Always available for your customers</div>
           </div>
           
-          <div className="text-center">
+          <div className={`text-center scroll-scale-in ${additionalStatsInView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
             <div className="text-4xl font-bold text-electric-lime mb-2">&lt;2s</div>
             <div className="text-white font-semibold mb-1">Response Time</div>
             <div className="text-gray-400 text-sm">Lightning-fast customer support</div>
           </div>
           
-          <div className="text-center">
+          <div className={`text-center scroll-scale-in ${additionalStatsInView ? 'animate' : ''}`} style={{ transitionDelay: '0.3s' }}>
             <div className="text-4xl font-bold text-bright-violet mb-2">95%</div>
             <div className="text-white font-semibold mb-1">Satisfaction Rate</div>
             <div className="text-gray-400 text-sm">Customers love our AI agents</div>

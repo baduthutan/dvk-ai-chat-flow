@@ -1,26 +1,32 @@
 
 import React from 'react';
 import { Search, TrendingUp, MessageSquare } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const FeaturesSection = () => {
+  const { ref: headerRef, isInView: headerInView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: feature1Ref, isInView: feature1InView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: feature2Ref, isInView: feature2InView } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: feature3Ref, isInView: feature3InView } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section id="features" className="py-24 px-6 bg-gradient-to-b from-rich-black to-darker-charcoal">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 scroll-fade-in ${headerInView ? 'animate' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             AI Agents That Convert Customers, Integrated Into Your Messaging Channels
           </h2>
           <p className="text-xl text-gray-400 max-w-4xl mx-auto">
-            Our AI assistants help scale sales on channels like WhatsApp, Instagram, Slack, Teams, and email—so you boost revenue while keeping it personal.
+            Our AI assistants help scale sales on channels like WhatsApp, Instagram, Teams, and email—so you boost revenue while keeping it personal.
           </p>
         </div>
 
         {/* Features Rows */}
         <div className="space-y-24">
           {/* Feature Row 1: Text Left, Image Right */}
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="md:w-1/2 space-y-6">
+          <div ref={feature1Ref} className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 scroll-fade-in ${feature1InView ? 'animate' : ''}`}>
+            <div className={`md:w-1/2 space-y-6 scroll-slide-left ${feature1InView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-neon-teal/20 rounded-lg flex items-center justify-center">
                   <Search className="w-6 h-6 text-neon-teal" />
@@ -35,7 +41,7 @@ const FeaturesSection = () => {
             </div>
             
             {/* Mini Chat Widget Mockup */}
-            <div className="md:w-1/2">
+            <div className={`md:w-1/2 scroll-slide-right ${feature1InView ? 'animate' : ''}`} style={{ transitionDelay: '0.4s' }}>
               <div className="bg-gray-900 rounded-2xl p-4 border border-gray-700 max-w-sm mx-auto">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
@@ -61,9 +67,9 @@ const FeaturesSection = () => {
           </div>
 
           {/* Feature Row 2: Image Left, Text Right */}
-          <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
+          <div ref={feature2Ref} className={`flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 scroll-fade-in ${feature2InView ? 'animate' : ''}`}>
             {/* Product Page Mockup */}
-            <div className="md:w-1/2">
+            <div className={`md:w-1/2 scroll-slide-left ${feature2InView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
               <div className="bg-gray-900 rounded-2xl p-4 border border-gray-700 max-w-sm mx-auto">
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -95,7 +101,7 @@ const FeaturesSection = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2 space-y-6">
+            <div className={`md:w-1/2 space-y-6 scroll-slide-right ${feature2InView ? 'animate' : ''}`} style={{ transitionDelay: '0.4s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-bright-violet/20 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-6 h-6 text-bright-violet" />
@@ -111,8 +117,8 @@ const FeaturesSection = () => {
           </div>
 
           {/* Feature Row 3: Text Left, Image Right */}
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="md:w-1/2 space-y-6">
+          <div ref={feature3Ref} className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 scroll-fade-in ${feature3InView ? 'animate' : ''}`}>
+            <div className={`md:w-1/2 space-y-6 scroll-slide-left ${feature3InView ? 'animate' : ''}`} style={{ transitionDelay: '0.2s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-electric-lime/20 rounded-lg flex items-center justify-center">
                   <MessageSquare className="w-6 h-6 text-electric-lime" />
@@ -127,10 +133,10 @@ const FeaturesSection = () => {
             </div>
             
             {/* Multi-channel Mockup */}
-            <div className="md:w-1/2">
+            <div className={`md:w-1/2 scroll-slide-right ${feature3InView ? 'animate' : ''}`} style={{ transitionDelay: '0.4s' }}>
               <div className="relative mx-auto max-w-sm">
                 {/* WhatsApp-style bubble */}
-                <div className="absolute top-0 left-0 bg-green-600/20 border border-green-500 rounded-lg p-3 w-48">
+                <div className="absolute top-0 left-0 bg-green-600/20 border border-green-500 rounded-lg p-3 w-48 animate-float">
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-4 h-4 bg-green-500 rounded-full"></div>
                     <span className="text-green-400 text-xs font-semibold">WhatsApp</span>
@@ -138,17 +144,17 @@ const FeaturesSection = () => {
                   <p className="text-white text-xs">Hi! How can I help you today?</p>
                 </div>
                 
-                {/* Slack-style bubble */}
-                <div className="absolute top-16 right-0 bg-purple-600/20 border border-purple-500 rounded-lg p-3 w-48">
+                {/* Teams-style bubble */}
+                <div className="absolute top-16 right-0 bg-purple-600/20 border border-purple-500 rounded-lg p-3 w-48 animate-drift">
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
-                    <span className="text-purple-400 text-xs font-semibold">Slack</span>
+                    <span className="text-purple-400 text-xs font-semibold">Teams</span>
                   </div>
                   <p className="text-white text-xs">I found the answer in your knowledge base!</p>
                 </div>
                 
                 {/* Email-style bubble */}
-                <div className="absolute top-32 left-12 bg-blue-600/20 border border-blue-500 rounded-lg p-3 w-48">
+                <div className="absolute top-32 left-12 bg-blue-600/20 border border-blue-500 rounded-lg p-3 w-48 animate-gentle-pulse">
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
                     <span className="text-blue-400 text-xs font-semibold">Email</span>
@@ -158,7 +164,7 @@ const FeaturesSection = () => {
                 
                 {/* Center DVK AI logo */}
                 <div className="h-48 flex items-center justify-center pt-24">
-                  <div className="bg-neon-teal/30 p-4 rounded-full">
+                  <div className="bg-neon-teal/30 p-4 rounded-full animate-glow-pulse">
                     <div className="w-12 h-12 bg-rich-black rounded-full border-2 border-neon-teal flex items-center justify-center text-neon-teal font-bold">
                       DVK
                     </div>
