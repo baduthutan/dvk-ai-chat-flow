@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
   return (
-    <section className="py-24 px-6 bg-deep-charcoal relative overflow-hidden">
+    <section className="py-24 px-6 bg-darker-charcoal relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-teal/10 rounded-full blur-3xl"></div>
@@ -27,12 +27,12 @@ const CTASection = () => {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        {/* Floating Chat Bubble Testimonials */}
-        <div className="absolute inset-0">
-          {/* Testimonial Bubble 1 */}
+        {/* Floating Chat Bubble Testimonials - positioned to not overlap main content */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Testimonial Bubble 1 - Top Left */}
           <div 
-            className="absolute top-[10%] left-[15%] max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2"
-            style={{transform: "translateY(calc(-10% + (var(--scroll) * 0.05)))"}}
+            className="absolute top-0 left-0 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden lg:block"
+            style={{transform: "translateY(calc(-20% + (var(--scroll) * 0.05))) rotate(-2deg)"}}
           >
             <p className="text-gray-200 text-sm">
               "DVK AI helped us increase our conversion rate by 40% in just two months!"
@@ -43,10 +43,10 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 2 */}
+          {/* Testimonial Bubble 2 - Top Right */}
           <div 
-            className="absolute top-[30%] right-[10%] max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1"
-            style={{transform: "translateY(calc(10% + (var(--scroll) * -0.03))) rotate(1deg)"}}
+            className="absolute top-0 right-0 max-w-xs bg-white/10 backdrop-blur-sm border border-electric-lime p-4 rounded-lg chat-bubble transform rotate-1 hidden lg:block"
+            style={{transform: "translateY(calc(-10% + (var(--scroll) * -0.03))) rotate(1deg)"}}
           >
             <p className="text-gray-200 text-sm">
               "Our average order value increased by 25% after implementing DVK AI's smart upsells."
@@ -57,10 +57,10 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 3 */}
+          {/* Testimonial Bubble 3 - Bottom Left */}
           <div 
-            className="absolute bottom-[20%] left-[20%] max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3"
-            style={{transform: "translateY(calc(-5% + (var(--scroll) * 0.02))) rotate(3deg)"}}
+            className="absolute bottom-0 left-0 max-w-xs bg-white/10 backdrop-blur-sm border border-bright-violet p-4 rounded-lg chat-bubble transform rotate-3 hidden lg:block"
+            style={{transform: "translateY(calc(10% + (var(--scroll) * 0.02))) rotate(3deg)"}}
           >
             <p className="text-gray-200 text-sm">
               "Our team can now focus on high-value tasks while DVK AI handles routine customer inquiries."
@@ -71,10 +71,10 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Testimonial Bubble 4 */}
+          {/* Testimonial Bubble 4 - Bottom Right */}
           <div 
-            className="absolute bottom-[10%] right-[25%] max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2"
-            style={{transform: "translateY(calc(15% + (var(--scroll) * -0.04))) rotate(-2deg)"}}
+            className="absolute bottom-0 right-0 max-w-xs bg-white/10 backdrop-blur-sm border border-neon-teal p-4 rounded-lg chat-bubble transform -rotate-2 hidden lg:block"
+            style={{transform: "translateY(calc(20% + (var(--scroll) * -0.04))) rotate(-2deg)"}}
           >
             <p className="text-gray-200 text-sm">
               "DVK AI integrated seamlessly with our existing systems. Implementation was a breeze."
@@ -86,8 +86,8 @@ const CTASection = () => {
           </div>
         </div>
 
-        {/* Main CTA Content */}
-        <div className="text-center pt-40 pb-10">
+        {/* Main CTA Content - with proper spacing from bubbles */}
+        <div className="text-center py-20 px-8">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Convert More Customers with{' '}
             <span className="text-neon-teal text-glow">AI Agents</span>?
