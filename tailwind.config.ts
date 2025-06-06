@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// DVK AI custom colors
+				'neon-teal': '#00E5C0',
+				'electric-lime': '#A5FF00',
+				'bright-violet': '#D900FF',
+				'soft-mint': '#B2FFEA',
+				'pale-cerulean': '#A0EFFF',
+				'deep-charcoal': '#111111',
+				'rich-black': '#0F0F0F',
+				'darker-charcoal': '#0A0A0A'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +94,55 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px #00E5C0, 0 0 10px #00E5C0, 0 0 15px #00E5C0'
+					},
+					'50%': {
+						boxShadow: '0 0 10px #00E5C0, 0 0 20px #00E5C0, 0 0 30px #00E5C0'
+					}
+				},
+				'bounce-slow': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'slide-in-from-left': {
+					'0%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'translateX(0)',
+						opacity: '1'
+					}
+				},
+				'slide-in-from-right': {
+					'0%': {
+						transform: 'translateX(100%)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'translateX(0)',
+						opacity: '1'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
+				'slide-in-left': 'slide-in-from-left 0.8s ease-out',
+				'slide-in-right': 'slide-in-from-right 0.8s ease-out'
+			},
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'space-grotesk': ['Space Grotesk', 'sans-serif']
 			}
 		}
 	},
