@@ -18,7 +18,7 @@ const Header = () => {
                 <path d="M18 10L14 16H18L16 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-2xl font-bold text-neon-teal font-space-grotesk">DVK AI</span>
+            <span className="text-2xl font-bold text-white font-space-grotesk">DVK AI</span>
           </div>
 
           {/* Desktop Navigation */}
